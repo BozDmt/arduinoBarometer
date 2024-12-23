@@ -7,9 +7,11 @@
 #include <WiFi.h>
 #include <AsyncTCP.h>
 #include <SPI.h>
-// #include <dummy.h>
+#include <ArduinoHttpClient.h>
+#include "web_secrets.h"
 #include <ESPAsyncWebServer.h>
 #include <esp_http_client.h>
+#include <Crypto.h>
 
 #define CALIBRATE_ABSOLUTE_DIFFERENCE
 #define SEALEVELPRESSURE_HPA (1013.25)
@@ -122,4 +124,5 @@ void loop() {
   altitude = bmp.readAltitude(SEALEVELPRESSURE_HPA);
   bmp.readPressure();
   bmp.readTemperature();
+  delay(1800000);
 }
